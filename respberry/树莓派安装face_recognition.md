@@ -13,6 +13,7 @@ sudo /etc/init.d/dphys-swapfile start
 `https://files.pythonhosted.org/packages/cf/3b/4fd8c534f6c0d1b80ce0973d01331525538045084c73c153ee6df20224cf/face_recognition_models-0.3.0.tar.gz`
 
 ## 手动安装 face_recognition_models  
+> 为防止face_recognition自带的setup.py去国外网站下载模型数据，从而导致安装失败，需要手动下载，在安装face_recognition之前，先完成模型数据的安装
 解压缩 face_recognition_models-0.3.0.tar.gz  
 pip3 install wheel  
 pip3 isntall ~/Downloads/face_recognition_models-0.3.0-py2.py3-none-any.whl  
