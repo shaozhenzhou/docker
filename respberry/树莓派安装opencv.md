@@ -1,4 +1,4 @@
-### 安装opencv
+### 树莓派安装opencv
 
 ##### 1、安装numpy
 打开命令行界面，输入以下命令，安装Python科学计算库numpy
