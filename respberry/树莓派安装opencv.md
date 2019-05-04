@@ -47,8 +47,18 @@ cd /home/pi/Downloads
 unzip opencv-3.4.0.zip
 unzip opencv_contrib-3.4.0.zip
 ```
+##### 5、手动下载tiny-dnn 和 face_landmark_model.dat
+下载tiny-dnn：  
+`https://github.com/tiny-dnn/tiny-dnn/archive/v1.0.0a3.tar.gz`  
+复制到  /home/pi/Downloads/opencv-3.4.0/.cache/tiny_dnn/adb1c512e09ca2c7a6faef36f9c53e59-v1.0.0a3.tar.gz  
+`cp ~/Downloads/tiny-dnn-1.0.0a3.tar.gz ~/Downloads/opencv-3.4.0/.cache/tiny_dnn/adb1c512e09ca2c7a6faef36f9c53e59-v1.0.0a3.tar.gz`  
+  
+下载face_landmark_model.dat：
+`https://raw.githubusercontent.com/opencv/opencv_3rdparty/8afa57abc8229d611c4937165d20e2a2d9fc5a12/face_landmark_model.dat`  
+复制到：/home/pi/Downloads/opencv-3.4.0/.cache/data/7505c44ca4eb54b4ab1e4777cb96ac05-face_landmark_model.dat  
+`cp ~/Downloads/face_landmark_model.dat ~/Downloads/opencv-3.4.0/.cache/data/7505c44ca4eb54b4ab1e4777cb96ac05-face_landmark_model.dat`  
 
-##### 5、设置编译参数
+##### 6、设置编译参数
 设置编译参数
 ```
 cd /home/pi/Downloads/opencv-3.4.0
