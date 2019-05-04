@@ -1,4 +1,4 @@
-### 安装openssl 1.1.1b
+### 树莓派安装openssl 1.1.1b
 - 切换到root用户
 ```
 sudo passwd root #修改密码
