@@ -95,7 +95,10 @@ sudo make insall
 ```cv2.__version__```
 回车
 
-如果出现下图的结果，说明Python3环境下的OpenCV安装成功。
+##### 7、在虚拟环境创建软链
+如果需要在venv虚拟环境中使用cv2，则需要在虚拟环境中创建软链  
+`ln -s /usr/local/lib/python3.5/dist-packages/cv2.cpython-35m-arm-linux-gnueabihf.so  ~/Develop/vision/venv/lib/python3.5/site-packages/.`
+
 
 
 
