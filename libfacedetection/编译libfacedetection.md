@@ -16,7 +16,7 @@ set(CMAKE_C_COMPILER "/usr/bin/arm-linux-gnueabihf-gcc")
 ```
 nano CMakeLists.txt
 option(DEMO "build the demo" ON)
-``
+```
 ## 编译源码
 ### build目录
 ```
