@@ -12,6 +12,11 @@ nano aarch64-toolchain.cmake
 set(CMAKE_CXX_COMPILER "/usr/bin/arm-linux-gnueabihf-g++")
 set(CMAKE_C_COMPILER "/usr/bin/arm-linux-gnueabihf-gcc")
 ```
+## 修改CMakeLists.txt，打开编译demo，便于测试是否编译成功
+```
+nano CMakeLists.txt
+option(DEMO "build the demo" ON)
+``
 ## 编译源码
 ### build目录
 ```
