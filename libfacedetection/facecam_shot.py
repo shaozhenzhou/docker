@@ -25,7 +25,7 @@ def CatchPICFromVideo(window_name, camera_idx):
         img_s = cv2.resize(img, (0, 0), fx = ratio, fy = ratio)
         cv2.imwrite("cap_160x120.jpg", img_s)
 
-        ratio = 1/8
+        ratio = 1/5
         img_s = cv2.resize(img, (0, 0), fx = ratio, fy = ratio)
         cv2.imwrite("cap_128x96.jpg", img_s)
 
