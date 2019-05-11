@@ -12,7 +12,7 @@ nano aarch64-toolchain.cmake
 set(CMAKE_CXX_COMPILER "/usr/bin/arm-linux-gnueabihf-g++")
 set(CMAKE_C_COMPILER "/usr/bin/arm-linux-gnueabihf-gcc")
 ```
-## 修改CMakeLists.txt，打开编译demo，便于测试是否编译成功
+## 修改CMakeLists.txt，打开编译demo，便于测试是否编译成功（默认方式，未打开加速）
 ```
 nano CMakeLists.txt
 option(DEMO "build the demo" ON)
@@ -82,6 +82,7 @@ face_rect=[194, 17, 28, 28], confidence=72, angle=0
 ```
 
 ## 编译加速版本
+### 加速参数设置
 加速相关有4个参数需要设置，分别为：  
 ```
 add_definitions(-mfpu=neon)  #如果要启用NEON，这个参数必须加，否则编译出错
@@ -90,7 +91,13 @@ add_definitions(-D_ENABLE_NEON)
 SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O3")
 ```
 
-## 修改后的 CMakeLists.txt 文件
+### 速度对比测试
+全部关闭（默认）： 1.6fps  
+只打开 -O3 ：8.7fps  
+只打开 -mfpu=neon|-D_ENABLE_INT8|-D_ENABLE_NEON：5pfs  
+全部打开 ： 21fps  
+
+### 修改后的 CMakeLists.txt 文件
 ```
 # CMakeLists for libfacedetectcnn
 
