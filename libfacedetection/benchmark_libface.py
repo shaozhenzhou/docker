@@ -27,7 +27,7 @@ for i in range(N):
                                                  byref(img.ctypes.data_as(POINTER(c_char)).contents), img.shape[1],
                                                  img.shape[0], img.shape[1] * 3)
     end = time.time()
-sum = end - start
+    sum = end - start
 
-print('每次耗时：{}， {} fps. '.format(sum/N, 1/(sum/N)))
+print('每次耗时：{}ms,  {:.2f}fps. '.format(int(sum/N*1000), 1/(sum/N)))
 
