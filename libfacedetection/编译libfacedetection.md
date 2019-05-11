@@ -71,14 +71,9 @@ CMakeCache.txt  CMakeFiles  cmake_install.cmake  face_detect  libfacedetection.s
 ```
 ### 测试
 ```
-pi@raspberrypi:~/Develop/libfacedetection/build $ ./fdt_demo ../images/chloecalmon.png
-6 faces detected.
-face_rect=[306, 51, 127, 127], confidence=99, angle=0
-face_rect=[441, 110, 172, 172], confidence=99, angle=0
-face_rect=[1086, 99, 191, 191], confidence=99, angle=0
-face_rect=[971, 59, 112, 112], confidence=99, angle=0
-face_rect=[153, 138, 93, 93], confidence=94, angle=0
-face_rect=[194, 17, 28, 28], confidence=72, angle=0
+pi@raspberrypi:~/Develop/libfacedetection/build $ ./fdt_demo ../images/keliamoniz1.jpg
+1 faces detected.
+face_rect=[264, 179, 220, 220], confidence=99, angle=0
 ```
 
 ## 编译加速版本
