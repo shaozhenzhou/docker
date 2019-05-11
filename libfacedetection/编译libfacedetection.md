@@ -200,10 +200,10 @@ endif()
 
 ### 重新编译命令
 ```
-sudo rm -r build
+rm -r build
 mkdir build; cd build; rm -rf *
-sudo cmake ..
-sudo make
+cmake ..
+make
   
 ```
 
