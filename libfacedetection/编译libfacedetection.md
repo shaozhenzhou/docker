@@ -1,6 +1,6 @@
 # 编译libfacedetection
 
-## 现在libfacedetection源码
+## 下载libfacedetection源码
 ```
 cd Develop
 git clone https://github.com/ShiqiYu/libfacedetection.git
