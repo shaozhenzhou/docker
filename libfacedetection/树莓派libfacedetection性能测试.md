@@ -84,10 +84,13 @@ print('每次耗时：{}， {} fps. '.format(sum/N, 1/(sum/N)))
 
 ## 性能测试结果
 ```
+(venv) pi@raspberrypi:~/Develop/testso $ python3 benchmark_libface.py cap_128x96.jpg
+每次耗时：0.01879849672317505， 53.19574297487235 fps. 
 (venv) pi@raspberrypi:~/Develop/testso $ python3 benchmark_libface.py cap_160x120.jpg
 每次耗时：0.02817378044128418， 35.49399421508445 fps. 
 (venv) pi@raspberrypi:~/Develop/testso $ python3 benchmark_libface.py cap_320x240.jpg
 每次耗时：0.12004116296768189， 8.330475774124459 fps. 
 (venv) pi@raspberrypi:~/Develop/testso $ python3 benchmark_libface.py cap_640x480.jpg
 每次耗时：0.4915662336349487， 2.03431385554165 fps. 
+
 ```
