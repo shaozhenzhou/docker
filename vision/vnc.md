@@ -1,6 +1,6 @@
 # NanoPi-M4 安装VNC
 
-# NanoPi-M4 特性
+## NanoPi-M4 特性
 本文实现了RK3399 NanoPi-M4的VNC的开机自启动，以及原版桌面的显示  
 系统：FriendlyDesktop  
 最新版本 － 基于Ubuntu 18.04 64位系统构建。  
