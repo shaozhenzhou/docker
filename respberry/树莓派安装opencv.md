@@ -108,3 +108,12 @@ sudo make insall
 `cp ~/Downloads/face_landmark_model.dat ~/Downloads/opencv-3.4.0/build/share/OpenCV/testdata/cv/face//face_landmark_model.dat
 `
 注：如果首次安装tiny-dnn目录，以及data目录尚未创建的话，可以手动创建，并拷贝文件。
+
+
+```
+cmake -D CMAKE_C_FLAGS=-O3 -mfpu=neon -DNEON=ON -D CMAKE_BUILD_TYPE=RELEASE -D ENABLE_NEON=ON -D CMAKE_INSTALL_PREFIX=/usr/local -D INSTALL_C_EXAMPLES=ON -D INSTALL_PYTHON_EXAMPLES=ON -D OPENCV_EXTRA_MODULES_PATH=/home/pi/Downloads/opencv_contrib-3.4.0/modules -D BUILD_EXAMPLES=ON -D WITH_LIBV4L=ON PYTHON3_EXECUTABLE=/usr/bin/python3.6 PYTHON_INCLUDE_DIR=/usr/include/python3.6 PYTHON_LIBRARY=/usr/lib/aarch64-linux-gnu/libpython3.6m.so PYTHON3_NUMPY_INCLUDE_DIRS=/home/pi/Develop/vision/venv/lib/python3.6/site-packages/numpy/core/include ..
+sudo make -j4
+sudo make insall
+
+
+```
