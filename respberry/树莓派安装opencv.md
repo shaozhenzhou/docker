@@ -106,3 +106,4 @@ sudo make insall
 复制到：/home/pi/Downloads/opencv-3.4.0/.cache/data/7505c44ca4eb54b4ab1e4777cb96ac05-face_landmark_model.dat  
 `cp ~/Downloads/face_landmark_model.dat ~/Downloads/opencv-3.4.0/.cache/data/7505c44ca4eb54b4ab1e4777cb96ac05-face_landmark_model.dat`  
 
+注：如果首次安装tiny-dnn目录，以及data目录尚未创建的话，可以手动创建，并拷贝文件。
