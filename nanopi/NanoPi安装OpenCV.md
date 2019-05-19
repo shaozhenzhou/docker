@@ -195,8 +195,16 @@ sudo make -j4
 sudo make insall
 ```
 
-## 注：对于OpenCV是否找到OpenBLAS的信息，查看CMAKE输出日志，看到
+## 注：对于OpenCV是否找到OpenBLAS的信息，查看CMAKE输出日志
 ```
+-- Found OpenBLAS libraries: /opt/OpenBLAS/lib/libopenblas.so
+-- Found OpenBLAS include: /opt/OpenBLAS/include
+-- LAPACK(OpenBLAS): LAPACK_LIBRARIES: /opt/OpenBLAS/lib/libopenblas.so
+-- LAPACK(OpenBLAS): Can't build LAPACK check code. This LAPACK version is not supported.
+-- Found Atlas: /usr/include/aarch64-linux-gnu  
+-- Found Atlas (include: /usr/include/aarch64-linux-gnu, library: /usr/lib/aarch64-linux-gnu/libatlas.so)
+-- LAPACK(Atlas): LAPACK_LIBRARIES: /usr/local/lib/liblapack.a;/usr/local/lib/libcblas.a;/usr/lib/aarch64-linux-gnu/libatlas.so
+-- LAPACK(Atlas): Can't build LAPACK check code. This LAPACK version is not supported.
 
 ```
 
@@ -210,7 +218,7 @@ sudo make insall
 --     Version control (extra):     unknown
 -- 
 --   Platform:
---     Timestamp:                   2019-05-18T15:26:44Z
+--     Timestamp:                   2019-05-19T11:26:20Z
 --     Host:                        Linux 4.4.167 aarch64
 --     CMake:                       3.10.2
 --     CMake generator:             Unix Makefiles
@@ -244,11 +252,11 @@ sudo make insall
 --     Disabled by dependency:      -
 --     Unavailable:                 cnn_3dobj cudaarithm cudabgsegm cudacodec cudafeatures2d cudafilters cudaimgproc cudalegacy cudaobjdetect cudaoptflow cudastereo cudawarping cudev cvv dnn_modern hdf java matlab ovis sfm viz
 --     Applications:                tests perf_tests examples apps
---     Documentation:               NO
+--     Documentation:               YES (/usr/bin/doxygen 1.8.13)
 --     Non-free algorithms:         NO
 -- 
 --   GUI: 
---     GTK+:                        YES (ver 2.24.32)
+--     GTK+:                        YES (ver 3.22.30)
 --       GThread :                  YES (ver 2.56.4)
 --       GtkGlExt:                  NO
 --     VTK support:                 NO
@@ -278,7 +286,7 @@ sudo make insall
 --       pbutils:                   YES (ver 1.14.1)
 --     libv4l/libv4l2:              1.14.2 / 1.14.2
 --     v4l/v4l2:                    linux/videodev.h linux/videodev2.h
---     gPhoto2:                     NO
+--     gPhoto2:                     YES
 -- 
 --   Parallel framework:            pthreads
 -- 
