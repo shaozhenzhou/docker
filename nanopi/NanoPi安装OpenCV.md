@@ -51,9 +51,11 @@ sudo make FC=gfortran
 sudo make install
 ```
 上面的git也可以改为从git上下载压缩包，再解压，更改文件夹名称为OpenBLAS  
+手动编译安装的目录为：/opt/OpenBLAS  
+也可以采用apt-get安装的方式：sudo apt-get install libopenblas-dev
 
 ## 5、安装blas，cblas，lapack，atlas
-blas和cblas的安装包下载地址为 ：
+blas和cblas的安装包下载地址为 ：
          [http://www.netlib.org/blas/blas.tgz]   
          [http://www.netlib.org/blas/blast-forum/cblas.tgz]  
 
@@ -62,7 +64,7 @@ lapack的官方包地址： 
 atlas的官方包地址：
          [http://sourceforge.net/projects/math-atlas/]  
 
-### blas的安装
+### blas的安装（可以不装）
 下载文件后，对压缩包进行解压，进入目录，执行命令为：
 ```
 gfortran -c  -O3 *.f  # 编译所有的 .f 文件，生成 .o文件  
@@ -70,7 +72,7 @@ ar rv libblas.a *.o  # 链接所有的 .o文件，生成 .a 文件
 sudo cp libblas.a /usr/local/lib  # 将库文件复制到系统库目录
 ```
 
-### cblas的安装
+### cblas的安装（可以不装）
 进入CBLAS文件夹，根据你自己的计算机平台，将目录下某个 Makefile.XXX 复制为 Makefile.in , XXX表示计算机的平台，如果是Linux，那么就将Makefile.LINUX 复制为 Makefile.in，然后使用下面的命令安装：
 ```
 cp ../BLAS/libblas.a  testing  # 将上一步编译成功的 libblas.a 复制到 CBLAS目录下的testing子目录  
@@ -78,7 +80,7 @@ make # 编译所有的目录
 sudo cp lib/cblas_LINUX.a /usr/local/lib/libcblas.a # 将库文件复制到系统库目录下  
 ```
 
-### lapack的安装
+### lapack的安装（可以不装，dlib编译将使用OpenBLAS自带的lapack）
 编译 lapack以及lapacke，这一步比较麻烦，首先当然是进入lapack-3.4.2文件夹，然后根据平台的特点，将INSTALL目录下对应的make.inc.XXX 复制一份到 lapack-3.4.2目录下，并命名为make.inc, 这里我复制的是 INSTALL/make.inc.gfortran，因为我这里用的是gfortran编译器。  
 修改lapack-3.4.2/Makefile, 因为lapack以来于blas库，所以需要做如下修改
 ```
@@ -95,7 +97,7 @@ cd .. #返回到 lapack-3.4.2 目录
 cp *.a /usr/local/lib # 将生成的所有库文件复制到系统库目录 
 ```
 
-###altas的安装
+### altas的安装
 这个比较麻烦，不过可以直接使用命令sudo apt-get install libatlas-base-dev来进行安装。  
 注：前面步骤已经安装。
 ```
