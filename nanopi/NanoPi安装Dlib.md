@@ -16,7 +16,11 @@ sudo apt-get install libboost-all-dev
 
 ## 安装OpenBLAS
 ```
-
+git clone git://github.com/xianyi/OpenBLAS
+cd OpenBLAS
+sudo apt-get install gfortran
+sudo make FC=gfortran
+sudo make install
 ```
 
 ## 
