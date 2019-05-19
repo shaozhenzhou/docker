@@ -108,7 +108,7 @@ mv ATLAS ATLAS3.10.3                          # get unique dir name
 cd ATLAS3.10.3
 mkdir build                         # create BLDdir
 cd build                            # enter BLDdir
-../configure  -Fa alg -fPIC --prefix=/usr/atlas --with-netlib-lapack-tarfile=/home/pi/Downloads/lapack-3.8.0.tar.gz
+../configure --prefix=/usr/atlas --with-netlib-lapack-tarfile=/home/pi/Downloads/lapack-3.4.2.tgz
 make build                                    # tune & build lib
 make check                                    # sanity check correct answer
 make ptcheck                                  # sanity check parallel
