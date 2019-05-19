@@ -103,13 +103,12 @@ sudo apt-get install libatlas-base-dev
 ```
 如果手动安装，参考如下：  
 ```
-bunzip2 -c atlas3.10.x.tar.bz2 | tar xfm -    # create SRCdir
-mv ATLAS ATLAS3.10.x                          # get unique dir name
+bunzip -c atlas3.10.3.tar.gz | tar xfm -    # create SRCdir
+mv ATLAS ATLAS3.10.3                          # get unique dir name
+cd ATLAS3.10.3
 mkdir build                         # create BLDdir
 cd build                            # enter BLDdir
-../configure -b 64 -D c -DPentiumCPS=2400 \   # configure command
-    --prefix=/home/whaley/lib/atlas \           # install dir
-    --with-netlib-lapack-tarfile=/home/whaley/dload/lapack-3.4.1.tgz  #lapack所在的目录
+../configure --prefix=/usr/lib/atlas --with-netlib-lapack-tarfile=/home/pi/Downloads/lapack-3.8.0.tar.gz
 make build                                    # tune & build lib
 make check                                    # sanity check correct answer
 make ptcheck                                  # sanity check parallel
