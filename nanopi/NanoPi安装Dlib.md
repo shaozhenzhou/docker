@@ -37,7 +37,7 @@ pip3 install twine
 ```
 python3 setup.py bdist_wheel --compiler-flags "-O3" --set CMAKE_BUILD_TYPE=RELEASE --clean
 ```
-注：以下参数无需设置，安装程序能够自动判断
+注：以下参数不需要指定，安装程序会自动检测NEON，BLAS和LAPACK
 --set ENABLE_NEON=ON --set DLIB_USE_BLAS=1 --set DLIB_USE_LAPACK=1 
 
 ## output
