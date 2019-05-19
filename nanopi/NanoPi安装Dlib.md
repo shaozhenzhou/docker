@@ -24,6 +24,7 @@ sudo make install
 注：也可以通过apt安装编译版本
 ```
 sudo apt-get install libopenblas-dev
+sudo apt-get install libatlas-base-dev
 ```
 
 ## 安装wheel和twine
