@@ -4,7 +4,6 @@
 从Dlib网站下载：[http://dlib.net/]
 ```
 wget http://dlib.net/files/dlib-19.17.tar.bz2
-
 ```
 
 ## 安装基础库
@@ -22,12 +21,23 @@ sudo apt-get install gfortran
 sudo make FC=gfortran
 sudo make install
 ```
-
-## 
+注：也可以通过apt安装编译版本
 ```
-python3 setup.py bdist_wheel --compiler-flags "-O3" --set CMAKE_BUILD_TYPE=RELEASE --set ENABLE_NEON=ON --set DLIB_USE_BLAS=1 --set DLIB_USE_LAPACK=1 --clean
-
+sudo apt-get install libopenblas-dev
 ```
+
+## 安装wheel和twine
+```
+pip3 install wheel
+pip3 install twine
+```
+
+## 编译安装 Dlib，生成whl文件
+```
+python3 setup.py bdist_wheel --compiler-flags "-O3" --set CMAKE_BUILD_TYPE=RELEASE --clean
+```
+注：以下参数无需设置，安装程序能够自动判断
+--set ENABLE_NEON=ON --set DLIB_USE_BLAS=1 --set DLIB_USE_LAPACK=1 
 
 ## output
 ```
