@@ -42,7 +42,7 @@ python3 setup.py bdist_wheel --compiler-flags "-O3" --set CMAKE_BUILD_TYPE=RELEA
 
 ## output
 ```
-Invoking CMake setup: 'cmake /home/pi/Downloads/dlib-19.17/tools/python -DCMAKE_LIBRARY_OUTPUT_DIRECTORY=/home/pi/Downloads/dlib-19.17/build/lib.linux-aarch64-3.6 -DPYTHON_EXECUTABLE=/home/pi/Develop/vision/venv/bin/python3 -DCMAKE_CXX_FLAGS=-O3 -DCMAKE_BUILD_TYPE=RELEASE -DENABLE_NEON=ON -DDLIB_USE_BLAS=1 -DDLIB_USE_LAPACK=1 -DCMAKE_BUILD_TYPE=Release'
+Invoking CMake setup: 'cmake /home/pi/Downloads/dlib-19.17/tools/python -DCMAKE_LIBRARY_OUTPUT_DIRECTORY=/home/pi/Downloads/dlib-19.17/build/lib.linux-aarch64-3.6 -DPYTHON_EXECUTABLE=/home/pi/Develop/vision/venv/bin/python3 -DCMAKE_CXX_FLAGS=-O3 -DCMAKE_BUILD_TYPE=RELEASE -DCMAKE_BUILD_TYPE=Release'
 -- The C compiler identification is GNU 7.4.0
 -- The CXX compiler identification is GNU 7.4.0
 -- Check for working C compiler: /usr/bin/cc
@@ -122,11 +122,6 @@ CUDA_TOOLKIT_ROOT_DIR not found or specified
 -- C++11 activated.
 -- Configuring done
 -- Generating done
-CMake Warning:
-  Manually-specified variables were not used by the project:
-
-    ENABLE_NEON
-
 
 -- Build files have been written to: /home/pi/Downloads/dlib-19.17/build/temp.linux-aarch64-3.6
 
