@@ -1,4 +1,6 @@
 # OPENBLAS
+
+## after install openblas atlas lapack cblas...
 ```
 pi@NanoPi-M4:~$ sudo find / -name libblas.so*
 /etc/alternatives/libblas.so.3-aarch64-linux-gnu
