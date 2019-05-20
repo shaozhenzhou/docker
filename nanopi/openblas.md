@@ -62,3 +62,37 @@ lrwxrwxrwx   1 root root      17 9月  14  2017 libblas.so.3 -> libblas.so.3.10.
 lrwxrwxrwx   1 root root      19 9月  14  2017 liblapack.so -> liblapack.so.3.10.3
 lrwxrwxrwx   1 root root      19 9月  14  2017 liblapack.so.3 -> liblapack.so.3.10.3
 -rw-r--r--   1 root root 5189512 9月  14  2017 liblapack.so.3.10.3
+
+
+
+
+-- Searching for BLAS and LAPACK
+-- Searching for BLAS and LAPACK
+-- Found PkgConfig: /usr/bin/pkg-config (found version "0.29.1") 
+-- Checking for module 'cblas'
+--   No package 'cblas' found
+-- Checking for module 'lapack'
+--   Found lapack, version 3.10.3
+-- Looking for sys/types.h
+-- Looking for sys/types.h - found
+-- Looking for stdint.h
+-- Looking for stdint.h - found
+-- Looking for stddef.h
+-- Looking for stddef.h - found
+-- Check size of void*
+-- Check size of void* - done
+-- Found LAPACK library
+-- Found ATLAS BLAS library
+-- Looking for cblas_ddot
+-- Looking for cblas_ddot - not found
+-- BLAS library does not have cblas symbols, so dlib will not use BLAS or LAPACK
+ *****************************************************************************
+ *** No BLAS library found so using dlib's built in BLAS.  However, if you ***
+ *** install an optimized BLAS such as OpenBLAS or the Intel MKL your code ***
+ *** will run faster.  On Ubuntu you can install OpenBLAS by executing:    ***
+ ***    sudo apt-get install libopenblas-dev liblapack-dev                 ***
+ *** Or you can easily install OpenBLAS from source by downloading the     ***
+ *** source tar file from http://www.openblas.net, extracting it, and      ***
+ *** running:                                                              ***
+ ***    make; sudo make install                                            ***
+ *****************************************************************************
