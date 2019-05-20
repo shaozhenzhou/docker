@@ -7,6 +7,7 @@
 ```
 sudo /etc/init.d/dphys-swapfile stop
 sudo /etc/init.d/dphys-swapfile start
+
 ```
 
 ## 手动下载 [face_recognition_models-0.3.0-py2.py3-none-any.whl](https://pypi.org/project/face_recognition_models/)  
