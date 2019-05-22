@@ -168,8 +168,10 @@ export OPENBLAS_MAIN_FREE=1
 参考： [ https://fossies.org/linux/OpenBLAS/USAGE.md ] 
 如何在多线程应用程序中使用OpenBLAS？
 如果您的应用程序已经是多线程的，那么它将与OpenBLAS多线程冲突。因此，您必须将OpenBLAS设置为以下列任何一种方式使用单线程：
-export OPENBLAS_NUM_THREADS=1 在环境变量中。
-
+在环境变量中设置：
+export OPENBLAS_NUM_THREADS=1 
+如何在运行时禁用OpenBLAS线程关联？
+export OPENBLAS_MAIN_FREE=1
 
 # 附录，测试过程记录
 ## cmake opencv
