@@ -160,7 +160,11 @@ sudo find / -name cv2.cpython*
 `ln -s /usr/local/lib/python3.6/site-packages/cv2.cpython-36m-aarch64-linux-gnu.so ~/Develop/venv/lib/python3.6/site-packages/.
 `    
 
-
+## 注：可以使用环境变量参数控制openblas的线程数：
+```
+export OPENBLAS_NUM_THREADS=1 
+export OPENBLAS_MAIN_FREE=1
+```
 
 # 附录，测试过程记录
 ## cmake opencv
