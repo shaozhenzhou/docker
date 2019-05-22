@@ -86,22 +86,59 @@ sudo find / -name /lapacke.h
 ```
 确保这三个文件都在 /usr/include/aarch64-linux-gnu 下
 
-## 7.cmake
+## 7、手动添加难以自动下载的2个文件
+下载tiny-dnn：  
+`https://github.com/tiny-dnn/tiny-dnn/archive/v1.0.0a3.tar.gz`  
+复制到  /home/pi/Downloads/opencv-3.4.0/.cache/tiny_dnn/adb1c512e09ca2c7a6faef36f9c53e59-v1.0.0a3.tar.gz  
+`cp ~/Downloads/tiny-dnn-1.0.0a3.tar.gz ~/Downloads/opencv-3.4.0/.cache/tiny_dnn/adb1c512e09ca2c7a6faef36f9c53e59-v1.0.0a3.tar.gz`  
+  
+下载face_landmark_model.dat：
+`https://raw.githubusercontent.com/opencv/opencv_3rdparty/8afa57abc8229d611c4937165d20e2a2d9fc5a12/face_landmark_model.dat`  
+复制到：/home/pi/Downloads/opencv-3.4.0/.cache/data/7505c44ca4eb54b4ab1e4777cb96ac05-face_landmark_model.dat  
+`cp ~/Downloads/face_landmark_model.dat ~/Downloads/opencv-3.4.0/.cache/data/7505c44ca4eb54b4ab1e4777cb96ac05-face_landmark_model.dat`  
+注：.cache、tiny_dnn、data 目录尚未创建的话，可以手动创建，并拷贝文件。
+
+## 8、cmake
 注意最后的选项需要指定numpy的include目录
 ```
 mkdir build
 cd build
 cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/local -D INSTALL_C_EXAMPLES=ON -D INSTALL_PYTHON_EXAMPLES=ON -D OPENCV_EXTRA_MODULES_PATH=/home/pi/Downloads/opencv_contrib-3.4.0/modules -D BUILD_EXAMPLES=ON -D WITH_LIBV4L=ON PYTHON3_EXECUTABLE=/usr/bin/python3.6 PYTHON_INCLUDE_DIR=/usr/include/python3.6 PYTHON_LIBRARY=/usr/lib/aarch64-linux-gnu/libpython3.6m.so PYTHON3_NUMPY_INCLUDE_DIRS=/home/pi/Develop/venv/lib/python3.6/site-packages/numpy/core/include ..
 ```
-
-## 8.检查cmake信息
-在cmake输出中查找以下信息，为成功配置
+检查cmake信息，在cmake输出中查找以下信息，为成功配置
 ```
 -- Found OpenBLAS libraries: /usr/lib/aarch64-linux-gnu/libopenblas.so
 -- Found OpenBLAS include: /usr/include/aarch64-linux-gnu
 -- LAPACK(OpenBLAS): LAPACK_LIBRARIES: /usr/lib/aarch64-linux-gnu/libopenblas.so
 -- LAPACK(OpenBLAS): Support is enabled.
 ```
+
+## 9、编译
+最后一步，也是最重要的一步：编译
+
+保证至少8G的存储空间。
+```
+cd /home/pi/Downloads/opencv-3.4.0/build
+sudo make -j4
+```
+
+```make```命令执行完成之后，执行下面的命令，执行命令需要一分钟：
+```
+sudo make insall
+```
+## 10、在Python3上测试OpenCV
+安装好之后，在命令行中输入python3，回车
+
+```import cv2```
+回车
+
+```cv2.__version__```
+回车
+
+## 11、在虚拟环境创建软链
+如果需要在venv虚拟环境中使用cv2，则需要在虚拟环境中创建软链  
+`ln -s /usr/local/lib/python3.6/dist-packages/cv2.cpython-36m-arm-linux-gnueabihf.so  ~/Develop/vision/venv/lib/python3.6/site-packages/.`
+
 
 # 附录，测试过程记录
 ## cmake opencv
