@@ -1,13 +1,47 @@
-# NanoPiOpenCV
+# NanoPi OpenCV3.4.0编译安装
 
-## 1. Install
+## 1、下载OpenCV
+在命令行输入以下三条命令，下载两个压缩包到/home/pi/Downloads目录下。第一个压缩包86.8MB，第二个压缩包54.5MB：
+```
+wget https://github.com/Itseez/opencv/archive/3.4.0.zip
+
+wget https://github.com/Itseez/opencv_contrib/archive/3.4.0.zip
+```
+
+解压这两个压缩包
+```
+cd /home/pi/Downloads
+unzip opencv-3.4.0.zip
+unzip opencv_contrib-3.4.0.zip
+```
+
+## 2、安装OpenCV所需的库
+```
+sudo apt-get install build-essential git cmake pkg-config -y
+sudo apt-get install libjpeg8-dev -y
+sudo apt-get install libtiff5-dev -y
+sudo apt-get install libjasper-dev -y
+sudo apt-get install libpng12-dev -y
+
+sudo apt-get install libavcodec-dev libavformat-dev libswscale-dev libv4l-dev -y
+
+sudo apt-get install libgtk2.0-dev -y
+sudo apt-get install gfortran -y
+```
+
+## 3、 安装openblas及liblapacke
 ```
 sudo apt-get install libopenblas-dev
 sudo apt-get install liblapacke-dev
 
 ```
-# 2.Modify OpenCVFindOpenBLAS.cmake
-Add PATH /usr/include/aarch64-linux-gnu , /usr/lib/aarch64-linux-gnu
+## 4、修改 OpenCVFindOpenBLAS.cmake ，添加openblas搜索路径
+添加路径：/usr/include/aarch64-linux-gnu , /usr/lib/aarch64-linux-gnu
+可通过以下命令查找libopenblas.so文件所在目录
+```
+sudo find / -name libopenblas.so
+```
+修改opencv目录cmake下的OpenCVFindOpenBLAS.cmake
 ```
 SET(Open_BLAS_INCLUDE_SEARCH_PATHS
   /usr/include/aarch64-linux-gnu
@@ -37,21 +71,39 @@ SET(Open_BLAS_LIB_SEARCH_PATHS
         /usr/lib/openblas-base
         /usr/lib64
         /usr/lib
-
 ```
-## 3.make softlink to lapacke.h
+
+## 5、创建 apacke.h 软链到 /usr/include/aarch64-linux-gnu目录
 ```
 sudo ln -s /usr/include/lapacke.h /usr/include/aarch64-linux-gnu
 ```
 
-## 4.cmake
+## 6、检查相关文件是否就位
+```
+sudo find / -name libopenblas.so
+sudo find / -name cblas.h
+sudo find / -name /lapacke.h
+```
+确保这三个文件都在 /usr/include/aarch64-linux-gnu 下
+
+## 7.cmake
+注意最后的选项需要指定numpy的include目录
 ```
 mkdir build
 cd build
 cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/local -D INSTALL_C_EXAMPLES=ON -D INSTALL_PYTHON_EXAMPLES=ON -D OPENCV_EXTRA_MODULES_PATH=/home/pi/Downloads/opencv_contrib-3.4.0/modules -D BUILD_EXAMPLES=ON -D WITH_LIBV4L=ON PYTHON3_EXECUTABLE=/usr/bin/python3.6 PYTHON_INCLUDE_DIR=/usr/include/python3.6 PYTHON_LIBRARY=/usr/lib/aarch64-linux-gnu/libpython3.6m.so PYTHON3_NUMPY_INCLUDE_DIRS=/home/pi/Develop/venv/lib/python3.6/site-packages/numpy/core/include ..
 ```
 
-# notes
+## 8.检查cmake信息
+在cmake输出中查找以下信息，为成功配置
+```
+-- Found OpenBLAS libraries: /usr/lib/aarch64-linux-gnu/libopenblas.so
+-- Found OpenBLAS include: /usr/include/aarch64-linux-gnu
+-- LAPACK(OpenBLAS): LAPACK_LIBRARIES: /usr/lib/aarch64-linux-gnu/libopenblas.so
+-- LAPACK(OpenBLAS): Support is enabled.
+```
+
+# 附录，测试过程记录
 ## cmake opencv
 ```
 -- Could not find OpenBLAS include. Turning OpenBLAS_FOUND off
