@@ -125,5 +125,21 @@ sudo apt-get install liblapacke-dev
 -- LAPACK(OpenBLAS): Support is enabled.
 
 ```
+## dpk -l
+```
+(venv) pi@NanoPi-M4:~/Downloads/opencv-3.4.0/build$ 
+(venv) pi@NanoPi-M4:~/Downloads/opencv-3.4.0/build$ dpkg -l | grep blas
+ii  libblas3:arm64                       3.7.1-4ubuntu1                        arm64        Basic Linear Algebra Reference implementations, shared library
+ii  libgslcblas0:arm64                   2.4+dfsg-6                            arm64        GNU Scientific Library (GSL) -- blas library package
+ii  libopenblas-base:arm64               0.2.20+ds-4                           arm64        Optimized BLAS (linear algebra) library (shared library)
+ii  libopenblas-dev:arm64                0.2.20+ds-4                           arm64        Optimized BLAS (linear algebra) library (development files)
+(venv) pi@NanoPi-M4:~/Downloads/opencv-3.4.0/build$ dpkg -l | grep lapack
+ii  liblapack-dev:arm64                  3.7.1-4ubuntu1                        arm64        Library of linear algebra routines 3 - static version
+ii  liblapack3:arm64                     3.7.1-4ubuntu1                        arm64        Library of linear algebra routines 3 - shared version
+ii  liblapacke:arm64                     3.7.1-4ubuntu1                        arm64        Library of linear algebra routines 3 - C lib shared version
+ii  liblapacke-dev:arm64                 3.7.1-4ubuntu1                        arm64        Library of linear algebra routines 3 - Headers
+(venv) pi@NanoPi-M4:~/Downloads/opencv-3.4.0/build$ dpkg -l | grep atlas
+
+```
 
 
