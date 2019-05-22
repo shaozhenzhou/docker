@@ -142,13 +142,13 @@ sudo make -j4
 sudo make insall
 ```
 ## 10、在Python3上测试OpenCV
-
+查找 opencv编译后安装的动态链接库，确认是否已经安装：cv2.cpython-36m-aarch64-linux-gnu.so
 ```
 sudo find / -name cv2.cpython*
 /usr/local/lib/python3.6/site-packages/cv2/python-3.6/cv2.cpython-36m-aarch64-linux-gnu.so
 /usr/local/lib/python3.6/site-packages/cv2.cpython-36m-aarch64-linux-gnu.so
 ```
-安装好之后，在命令行中输入python3，回车
+通过python命令确认能否导入成功，在命令行中输入python3，回车
 ```import cv2```
 回车
 
@@ -158,7 +158,8 @@ sudo find / -name cv2.cpython*
 ## 11、在虚拟环境创建软链
 如果需要在venv虚拟环境中使用cv2，则需要在虚拟环境中创建软链  
 `ln -s /usr/local/lib/python3.6/site-packages/cv2.cpython-36m-aarch64-linux-gnu.so ~/Develop/venv/lib/python3.6/site-packages/.
-`
+`    
+
 
 
 # 附录，测试过程记录
