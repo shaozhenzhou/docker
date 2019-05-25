@@ -97,7 +97,7 @@ sudo ln -s /usr/include/lapacke.h /usr/include/aarch64-linux-gnu
 ```
 sudo find / -name libopenblas.so
 sudo find / -name cblas.h
-sudo find / -name /lapacke.h
+sudo find / -name lapacke.h
 ```
 确保这三个文件都在 /usr/include/aarch64-linux-gnu 下
 
