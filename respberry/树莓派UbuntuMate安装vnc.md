@@ -84,7 +84,10 @@ mate-session &
 
 ```
 
-## 自启动脚本 /etc/init.d/vnc
+## 自启动配置（ubuntu-16.10 开始不再使用initd管理系统，改用systemd）
+
+
+## （作废）自启动脚本 /etc/init.d/vnc
 ```
 #! /bin/sh
 export USER="pi"
