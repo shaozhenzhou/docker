@@ -81,7 +81,7 @@ if (!$fontPath) {
 # 避免 Could not acquire name on session bus 错误
 unset DBUS_SESSION_BUS_ADDRESS
 ```
- ## 解决键盘映射问题
+### 解决键盘映射问题
 ```
 # The export XKL_XMODMAP_DISABLE=1 line is needed to avoid keyboard mis-mapping
 export XKL_XMODMAP_DISABLE=1
