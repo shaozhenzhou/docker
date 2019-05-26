@@ -84,3 +84,47 @@ mate-session &
 
 ```
 
+## 自启动脚本 /etc/init.d/vnc
+```
+#! /bin/sh
+export USER="pi"
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/bin/X11"
+NAME=vnc
+
+DISPLAY="1"
+DEPTH="24"
+GEOMETRY="1920x1080"
+OPTIONS="-depth ${DEPTH} -geometry ${GEOMETRY} :${DISPLAY}"
+
+start()
+{
+    su - $USER -c "vncserver ${OPTIONS}"
+}
+stop()
+{
+    su - $USER -c "vncserver -clean -kill :${DISPLAY}"
+}
+case "$1" in
+    start)
+        echo -n "Starting vncserver for user '${USER}' on :${DISPLAY} "
+        start
+        ;;
+    stop)
+        echo -n "Stopping vncserver for user '${USER}' on :${DISPLAY}"
+        stop
+        ;;
+    restart)
+        echo -n "Restarting vncserver for user '${USER}' on :${DISPLAY} "
+        stop
+        start
+        ;;
+****)
+        echo "Usage: /etc/init.d/$NAME {start|stop|restart}"
+        exit 1
+        ;;
+esac
+exit 0
+
+```
+
+
