@@ -31,12 +31,36 @@ sudo apt-get install libopenblas-dev
 pip3 install wheel
 ```
 
-## 编译安装 Dlib，生成whl文件
+## 编译Dlib，生成whl文件
 ```
 python3 setup.py bdist_wheel --compiler-flags "-O3" --set CMAKE_BUILD_TYPE=RELEASE --clean
 ```
 注：以下参数不需要指定，安装程序会自动检测NEON，BLAS和LAPACK
 --set ENABLE_NEON=ON --set DLIB_USE_BLAS=1 --set DLIB_USE_LAPACK=1 
+
+## 安装dlib
+```
+python3 install dlib-19.17.0-cp36-cp36m-linux_aarch64.whl
+```
+
+## 测试dlib是否使用blas等优化参数
+```
+(venv) pi@RespBerryPi:~/Develop/vision/examples/benchmark$ python3
+Python 3.6.7 (default, Oct 22 2018, 11:32:17) 
+[GCC 8.2.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import dlib
+>>> dlib.DLIB_USE_BLAS
+True
+>>> dlib.DLIB_USE_CUDA
+False
+>>> dlib.DLIB_USE_LAPACK
+True
+>>> dlib.USE_AVX_INSTRUCTIONS
+False
+>>> dlib.USE_NEON_INSTRUCTIONS
+True
+```
 
 ## output
 ```
