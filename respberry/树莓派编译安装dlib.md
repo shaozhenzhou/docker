@@ -20,7 +20,7 @@ python3 setup.py bdist_wheel --compiler-flags "-mfpu=neon -O3" --set CMAKE_BUILD
 ```
 ## 安装dlib wheel
 ```
-pip install dlib.wheel
+pip install dlib-19.17.0-cpXX-cpXXm-linux_XXXXXX.whl
 ```
 
 ## 将缓存文件改回来
