@@ -2,6 +2,10 @@
 
 ## 下载dlib，解压
 
+## 安装openblas
+```
+sudo apt-get install libopenblas-dev
+```
 
 ## 为编译dlib配置缓存文件  
 ```
@@ -21,6 +25,21 @@ python3 setup.py bdist_wheel --compiler-flags "-mfpu=neon -O3" --set CMAKE_BUILD
 ## 安装dlib wheel
 ```
 pip install dlib-19.17.0-cpXX-cpXXm-linux_XXXXXX.whl
+```
+## 测试dlib编译参数是否生效
+```
+$ python3
+>>> import dlib
+>>> dlib.DLIB_USE_BLAS
+True
+>>> dlib.DLIB_USE_CUDA
+False
+>>> dlib.DLIB_USE_LAPACK
+True
+>>> dlib.USE_AVX_INSTRUCTIONS
+False
+>>> dlib.USE_NEON_INSTRUCTIONS
+True
 ```
 
 ## 将缓存文件改回来
