@@ -45,6 +45,16 @@ python3 install dlib-19.17.0-cp36-cp36m-linux_aarch64.whl
 
 ## 测试dlib是否使用blas等优化参数
 ```
+$ python3
+import dlib
+dlib.DLIB_USE_BLAS
+dlib.DLIB_USE_CUDA
+dlib.DLIB_USE_LAPACK
+dlib.USE_AVX_INSTRUCTIONS
+dlib.USE_NEON_INSTRUCTIONS
+```
+测试结果
+```
 (venv) pi@RespBerryPi:~/Develop/vision/examples/benchmark$ python3
 Python 3.6.7 (default, Oct 22 2018, 11:32:17) 
 [GCC 8.2.0] on linux
