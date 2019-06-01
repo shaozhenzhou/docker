@@ -63,7 +63,7 @@ sudo nano /etc/init.d/tightvncserver
 VNCUSER='pi'
 case "$1" in
         start)
-                su $VNCUSER -c '/usr/bin/tightvncserver :1'
+                su $VNCUSER -c '/usr/bin/tightvncserver -geometry 1920x1080 -depth 16 :1'
                 echo "Starting TightVNC Server for $VNCUSER"
         ;;
         stop)
