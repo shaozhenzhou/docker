@@ -34,9 +34,11 @@ scons Werror=1 -j4 debug=0 asserts=1 neon=0 opencl=1 embed_kernels=1 os=linux ar
 ```
 
 ## set GPU frequency
+```
 sudo su
 echo "performance" >/sys/devices/platform/ff9a0000.gpu/devfreq/ff9a0000.gpu/governor
 cat /sys/devices/platform/ff9a0000.gpu/devfreq/ff9a0000.gpu/cur_freq
+```
 
 ## 安装Tengine(build tengine with ACL)
 ### edit makefile.config
