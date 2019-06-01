@@ -56,7 +56,7 @@ make install
 ```
 
 ### build mssd
-download model from Tengine model zoo (psw: 57vb) to ~/tengine/models/:
+download model from Tengine model zoo [ https://pan.baidu.com/s/1LXZ8vOdyOo50IXS0CUPp8g ] (psw: 57vb) to ~/tengine/models/:
 build
 ```
 cd example/mobilenet_ssd
