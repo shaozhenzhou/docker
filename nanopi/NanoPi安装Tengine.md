@@ -47,7 +47,7 @@ cp makefile.config.example makefile.config
 nano makefile.config
 
 CONFIG_ACL_GPU=y
-ACL_ROOT=/home/firefly/ComputeLibrary
+ACL_ROOT=/home/pi/Downloads/ComputeLibrary
 ```
 ### build
 ```
@@ -60,7 +60,7 @@ download model from Tengine model zoo [ https://pan.baidu.com/s/1LXZ8vOdyOo50IXS
 build
 ```
 cd example/mobilenet_ssd
-cmake -DTENGINE_DIR=/home/firefly/tengine .
+cmake -DTENGINE_DIR=/home/pi/Downloads/Tengine .
 make 
 ```
 
