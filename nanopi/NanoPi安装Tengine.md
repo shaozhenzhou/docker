@@ -24,7 +24,7 @@ cd ~/Downloads
 wget https://sourceforge.net/projects/scons/files/scons/3.0.5/scons-3.0.5.tar.gz
 tar -zxvf scons-3.0.5.tar.gz
 cd scons-3.0.5
-python setup.py install
+sudo python setup.py install
 ```
 
 ## 安装ACL
