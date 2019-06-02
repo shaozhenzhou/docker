@@ -30,6 +30,7 @@ sudo python setup.py install
 ## 安装ACL
 ```
 git clone https://github.com/ARM-software/ComputeLibrary.git
+cd ~/Develop/ComputeLibrary
 scons Werror=1 -j4 debug=0 asserts=1 neon=0 opencl=1 embed_kernels=1 os=linux arch=arm64-v8a
 ```
 
@@ -47,7 +48,7 @@ cp makefile.config.example makefile.config
 nano makefile.config
 
 CONFIG_ACL_GPU=y
-ACL_ROOT=/home/pi/Downloads/ComputeLibrary
+ACL_ROOT=/home/pi/Develop/ComputeLibrary
 ```
 ### build
 ```
@@ -60,7 +61,8 @@ download model from Tengine model zoo [ https://pan.baidu.com/s/1LXZ8vOdyOo50IXS
 build
 ```
 cd example/mobilenet_ssd
-cmake -DTENGINE_DIR=/home/pi/Downloads/Tengine .
+# 修改mssd.cpp，将CV_FILLED，改为-1
+cmake -DTENGINE_DIR=/home/pi/Develop/Tengine .
 make 
 ```
 
@@ -70,6 +72,26 @@ export GPU_CONCAT=0           # disable gpu run concat,     avoid frequent data 
 export ACL_FP16=1             # enable gpu fp16
 export REPEAT_COUNT=50        # repeat count to run mssd,     get avg time
 taskset 0x1 ./MSSD -d acl_opencl          # -d acl_opencl to use gpu, taskset 0x1 to bind cpu0(A53)
+
+pi@NanoPi-M4:~/Develop/Tengine/examples/mobilenet_ssd$ taskset 0x1 ./MSSD -d acl_opencl 
+/home/pi/Develop/Tengine/examples/mobilenet_ssd/MSSD
+proto file not specified,using /home/pi/Develop/Tengine/models/MobileNetSSD_deploy.prototxt by default
+model file not specified,using /home/pi/Develop/Tengine/models/MobileNetSSD_deploy.caffemodel by default
+image file not specified,using /home/pi/Develop/Tengine/tests/images/ssd_dog.jpg by default
+ACL Graph Initialized
+Driver: ACLGraph probed 1 devices
+--------------------------------------
+repeat 50 times, avg time per run is 174.168 ms
+detect result num: 3 
+dog     :100%
+BOX:( 138.419 , 209.091 ),( 324.504 , 541.568 )
+car     :100%
+BOX:( 467.356 , 72.9224 ),( 687.269 , 171.123 )
+bicycle :100%
+BOX:( 107.053 , 140.221 ),( 574.472 , 415.248 )
+======================================
+[DETECTED IMAGE SAVED]: save.jpg
+======================================
 ```
 
 
