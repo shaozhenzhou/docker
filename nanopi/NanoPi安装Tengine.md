@@ -61,7 +61,7 @@ download model from Tengine model zoo [ https://pan.baidu.com/s/1LXZ8vOdyOo50IXS
 build
 ```
 cd example/mobilenet_ssd
-# 修改mssd.cpp，将CV_FILLED，改为-1
+# 修改mssd.cpp，增加#include "opencv2/imgproc/imgproc_c.h"，解决CV_FILLED not in scope的问题
 cmake -DTENGINE_DIR=/home/pi/Develop/Tengine .
 make 
 ```
