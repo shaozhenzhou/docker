@@ -1,0 +1,42 @@
+  GNU nano 2.3.1                                                                        File: config.json                                                                                                                                                        
+
+{
+  "inbounds": [{
+    "port": 65432,           //此处为安装时生成的端口，可修改随意，但是保证和下面提到的端口号相同
+    "listen":"127.0.0.1",
+    "protocol": "vmess",
+    "settings": {
+      "clients": [
+        {
+          "id": "0eac0507-1789-49b8-a164-c96d13337187", //此处为安装时生成的 id
+          "level": 1,
+          "alterId": 20      //此处为安装时生成的 alterId
+        }
+      ]
+    },
+    "streamSettings": {
+      "network": "ws",
+      "wsSettings": {
+        "path": "/softdown/net"   //此处为路径，需要和下面 NGINX 上面的路径配置一样
+      }
+    }
+  }],
+  "outbounds": [{
+    "protocol": "freedom",
+    "settings": {}
+  },{
+    "protocol": "blackhole",
+    "settings": {},
+    "tag": "blocked"
+  }],
+  "routing": {
+    "rules": [
+      {
+        "type": "field",
+        "ip": ["geoip:private"],
+        "outboundTag": "blocked"
+      }
+    ]
+  }
+}
+
